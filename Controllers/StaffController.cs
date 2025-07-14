@@ -16,8 +16,7 @@ namespace school_management_api.Controllers
             this.staffRepository = staffRepository;
         }
 
-        [HttpGet]
-        [Route("getStaffs")]
+        [HttpGet("getStaffs")]
         public async Task<IActionResult> GetStaffs()
         {
             var staffs = await staffRepository.GetStaffsAsync();
@@ -34,8 +33,7 @@ namespace school_management_api.Controllers
             return Ok(staffListResponse);
         }
 
-        [HttpGet]
-        [Route("getStaffsWithSchool")]
+        [HttpGet("getStaffsWithSchool")]
         public async Task<IActionResult> GetStaffsWithSchool()
         {
             var staffs = await staffRepository.GetStaffsWithSchoolAsync();
@@ -52,8 +50,7 @@ namespace school_management_api.Controllers
             return Ok(staffResponse);
         }
 
-        [HttpGet("{id:int}")]
-        [Route("getStaffById")]
+        [HttpGet("getStaffById/{id:int}")]
         public async Task<IActionResult> GetStaffById(int id)
         {
             var staff = await staffRepository.GetStaffByIdAsync(id);
@@ -72,8 +69,7 @@ namespace school_management_api.Controllers
             return Ok(staffListResponse);
         }
 
-        [HttpGet("{id:int}")]
-        [Route("getStaffByIdWithSchool")]
+        [HttpGet("getStaffByIdWithSchool/{id:int}")]
         public async Task<IActionResult> GetStaffByIdWithSchoolAsync(int id)
         {
             var staff = await staffRepository.GetStaffByIdWithSchoolAsync(id);
@@ -92,8 +88,7 @@ namespace school_management_api.Controllers
             return Ok(staffResponse);
         }
 
-        [HttpPost]
-        [Route("addStaff")]
+        [HttpPost("addStaff")]
         public async Task<IActionResult> AddStaff(StaffPOSTRequest staffPOSTRequest)
         {
             if (ModelState.IsValid)
@@ -119,8 +114,7 @@ namespace school_management_api.Controllers
             return BadRequest(staffPOSTRequest);
         }
 
-        [HttpPut("{id:int}")]
-        [Route("updateStaff")]
+        [HttpPut("updateStaff/{id:int}")]
         public async Task<IActionResult> UpdateStaff(int id, StaffPUTRequest staffPUTRequest)
         {
             if (id != staffPUTRequest.Id)
@@ -150,8 +144,7 @@ namespace school_management_api.Controllers
             return BadRequest(staffPUTRequest);
         }
 
-        [HttpDelete("{id:int}")]
-        [Route("deleteStaff")]
+        [HttpDelete("deleteStaff/{id:int}")]
         public async Task<IActionResult> DeleteStaff(int id)
         {
             bool success = await staffRepository.DeleteStaffAsync(id);

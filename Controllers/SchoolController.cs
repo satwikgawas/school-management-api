@@ -16,8 +16,7 @@ namespace school_management_api.Controllers
             this.schoolRepository = schoolRepository;
         }
 
-        [HttpGet]
-        [Route("getSchools")]
+        [HttpGet("getSchools")]
         public async Task<IActionResult> GetSchools()
         {
             var schools = await schoolRepository.GetSchoolsAsync();
@@ -32,8 +31,7 @@ namespace school_management_api.Controllers
             return Ok(schoolResponseList);
         }
 
-        [HttpGet("{id:int}")]
-        [Route("getSchoolById")]
+        [HttpGet("getSchoolById/{id:int}")]
         public async Task<IActionResult> GetSchoolById(int id)
         {
             var school = await schoolRepository.GetSchoolByIdAsync(id);
@@ -50,8 +48,7 @@ namespace school_management_api.Controllers
             return Ok(schoolResponse);
         }
 
-        [HttpPost]
-        [Route("addSchool")]
+        [HttpPost("addSchool")]
         public async Task<IActionResult> AddSchool(SchoolPOSTRequest schoolPOSTRequest)
         {
             if (ModelState.IsValid)
@@ -73,8 +70,7 @@ namespace school_management_api.Controllers
             return BadRequest(schoolPOSTRequest);
         }
 
-        [HttpPut("{id:int}")]
-        [Route("updateSchool")]
+        [HttpPut("updateSchool/{id:int}")]
         public async Task<IActionResult> UpdateSchool(int id, SchoolPUTRequest schoolPUTRequest)
         {
             if (id != schoolPUTRequest.Id)
@@ -101,8 +97,7 @@ namespace school_management_api.Controllers
             return BadRequest(schoolPUTRequest);
         }
 
-        [HttpDelete("{id:int}")]
-        [Route("delteSchool")]
+        [HttpDelete("delteSchool/{id:int}")]
         public async Task<IActionResult> DeleteSchool(int id)
         {
             bool success = await schoolRepository.DeleteSchoolAsync(id);

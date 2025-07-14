@@ -125,3 +125,5 @@ D:\Asp.Net Core Web API\school-management-api_sln\school-management-api\obj\Debu
 D:\Asp.Net Core Web API\school-management-api_sln\school-management-api\obj\Debug\net8.0\school-management-api.pdb
 D:\Asp.Net Core Web API\school-management-api_sln\school-management-api\obj\Debug\net8.0\school-management-api.genruntimeconfig.cache
 D:\Asp.Net Core Web API\school-management-api_sln\school-management-api\obj\Debug\net8.0\ref\school-management-api.dll
+D:\Asp.Net Core Web API\school-management-api_sln\school-management-api\bin\Debug\net8.0\school_management_db.db
+D:\Asp.Net Core Web API\school-management-api_sln\school-management-api\obj\Debug\net8.0\school-management-api.sourcelink.json

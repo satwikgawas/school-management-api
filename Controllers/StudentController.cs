@@ -16,8 +16,7 @@ namespace school_management_api.Controllers
             this.studentRepository = studentRepository;
         }
 
-        [HttpGet]
-        [Route("getStudents")]
+        [HttpGet("getStudents")]
         public async Task<IActionResult> GetStudents()
         {
             var students = await studentRepository.GetStudentsAsync();
@@ -35,8 +34,7 @@ namespace school_management_api.Controllers
             return Ok(studentListResponse);
         }
 
-        [HttpGet]
-        [Route("getStudetsWithSchool")]
+        [HttpGet("getStudetsWithSchool")]
         public async Task<IActionResult> GetStudentsWithSchool()
         {
             var students = await studentRepository.GetStudentsWithSchoolAsync();
@@ -54,8 +52,7 @@ namespace school_management_api.Controllers
             return Ok(studentResponse);
         }
 
-        [HttpGet("{id:int}")]
-        [Route("getStudentById")]
+        [HttpGet("getStudentById/{id:int}")]
         public async Task<IActionResult> GetStudentById(int id)
         {
             var student = await studentRepository.GetStudentByIdAsync(id);
@@ -75,8 +72,7 @@ namespace school_management_api.Controllers
             return Ok(studentListResponse);
         }
 
-        [HttpGet("{id:int}")]
-        [Route("getStudentByIdWithSchool")]
+        [HttpGet("getStudentByIdWithSchool/{id:int}")]
         public async Task<IActionResult> GetStudentByIdWithSchoolAsync(int id)
         {
             var student = await studentRepository.GetStudentByIdWithSchoolAsync(id);
@@ -96,8 +92,7 @@ namespace school_management_api.Controllers
             return Ok(studentResponse);
         }
 
-        [HttpPost]
-        [Route("addStudent")]
+        [HttpPost("addStudent")]
         public async Task<IActionResult> AddStudent(StudentPOSTRequest studentPOSTRequest)
         {
             if (ModelState.IsValid)
@@ -125,8 +120,7 @@ namespace school_management_api.Controllers
             return BadRequest(studentPOSTRequest);
         }
 
-        [HttpPut("{id:int}")]
-        [Route("updateStudent")]
+        [HttpPut("updateStudent/{id:int}")]
         public async Task<IActionResult> UpdateStudent(int id, StudentPUTRequest studentPUTRequest)
         {
             if (id != studentPUTRequest.Id)
@@ -158,8 +152,7 @@ namespace school_management_api.Controllers
             return BadRequest(studentPUTRequest);
         }
 
-        [HttpDelete("{id:int}")]
-        [Route("deleteStudent")]
+        [HttpDelete("deleteStudent/{id:int}")]
         public async Task<IActionResult> DeleteStudent(int id)
         {
             bool success = await studentRepository.DeleteStudentAsync(id);
